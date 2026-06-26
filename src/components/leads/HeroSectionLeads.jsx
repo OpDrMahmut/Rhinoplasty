@@ -59,7 +59,7 @@ export default function HeroSection({ loaded }) {
                     display: 'block',
                   }}
                 >
-                  Discover If Rhinoplasty Is Right for You
+                  Discover If Rhinoplasty Is Right for You.
                 </motion.h1>
               </div>
         
