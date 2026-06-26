@@ -14,6 +14,7 @@ import NoseAesthetics from "@/pages/NoseAesthetics";
 import FacialAesthetics from "@/pages/FacialAesthetics";
 import FillersBotox from "@/pages/FillersBotox";
 import Certifications from "@/pages/Certifications";
+import Leads from "@/pages/Leads";
 import PageTransition from "@/components/luxury/PageTransition";
 import { TransitionProvider, useTransition } from "@/lib/TransitionContext";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
@@ -45,6 +46,7 @@ const AuthenticatedApp = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/certifications" element={<Certifications />} />
+          <Route path="/leads" element={<Leads />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       )}
