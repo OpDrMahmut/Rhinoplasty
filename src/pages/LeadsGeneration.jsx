@@ -1,7 +1,7 @@
 
 import LoadingOverlay from '@/components/luxury/LoadingOverlay';
 import React, { useCallback, useState , } from 'react'
-import HeroSection from '@/components/leads/HeroSectionLeads';
+import HeroSection from '@/components/leads/LeagsGenHero';
 
 function RhinoplastyLeads() {
    const [loaded, setLoaded] = useState(false);
