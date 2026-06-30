@@ -120,7 +120,7 @@ export default function HeroSection({ loaded }) {
             <motion.div
               initial={{ clipPath: "inset(100% 0 0 0)", scale: 1.1 }}
               animate={loaded ? { clipPath: "inset(0% 0 0 0)", scale: 1 } : {}}
-              transition={{ duration: 1.6, delay: 2.15, ease: [0.76, 0, 0.24, 1] }}
+              transition={{ duration: 1.6, delay: 0.8, ease: [0.76, 0, 0.24, 1] }}
               className="img-hover-container"
               style={{
                 height: 'clamp(460px, 72vh, 780px)',
