@@ -29,7 +29,7 @@ export default function HeroSection({ loaded }) {
             {/* Eyebrow */}
             <div className="overflow-hidden mb-8">
               <motion.p
-                variants={item(2.4)}
+                variants={item(1.9)}
                 initial="hidden"
                 animate={state}
                 style={{
@@ -67,7 +67,7 @@ export default function HeroSection({ loaded }) {
             {/* Body copy */}
             <div className="overflow-hidden mt-8">
               <motion.p
-                variants={item(2.9)}
+                variants={item(1.9)}
                 initial="hidden"
                 animate={state}
                 style={{
@@ -84,7 +84,7 @@ export default function HeroSection({ loaded }) {
 
             {/* CTAs */}
             <motion.div
-              variants={item(3.05)}
+              variants={item(1.05)}
               initial="hidden"
               animate={state}
               className="flex flex-col sm:flex-row items-start gap-5 mt-10"
