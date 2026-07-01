@@ -357,7 +357,7 @@ function TextContent({ state }) {
         className="mt-12"
       >
         <a
-          href="https://wa.me/+905327457466"
+          href="https://wa.me/905327457466"
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-3 transition-all duration-500"
@@ -378,7 +378,7 @@ function TextContent({ state }) {
             e.currentTarget.style.backgroundColor = "#0F1412";
           }}
         >
-          Begin Assessment
+          Whatsapp Us
           <ArrowRight
             size={13}
             strokeWidth={1.5}
