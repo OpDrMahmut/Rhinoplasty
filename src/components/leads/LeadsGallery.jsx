@@ -65,8 +65,7 @@ export default function GallerySection() {
                 textTransform: "uppercase",
                 color: "#9D7E54",
               }}
-            >
-              Precision in Every Detail
+            >Natural Results, Expert Care
             </motion.p>
             <motion.h2
               initial="hidden"
@@ -84,7 +83,7 @@ export default function GallerySection() {
                 maxWidth: "620px",
               }}
             >
-              A Study in Precision &amp; Natural Beauty
+              A Study in Aesthetic &amp; Natural Beauty
             </motion.h2>
           </div>
           <motion.p
@@ -101,8 +100,7 @@ export default function GallerySection() {
               color: "#666666",
             }}
           >
-            Each result reflects our commitment to surgical artistry —
-            enhancements that honor the individual's natural anatomy.
+          Every procedure is carefully planned to enhance your natural features while maintaining balance and harmony.
           </motion.p>
         </div>
 

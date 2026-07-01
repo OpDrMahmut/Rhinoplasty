@@ -302,13 +302,13 @@ function TextContent({ state }) {
             color: "#9D7E54",
           }}
         >
-          Premier Rhinoplasty Consultation
+         Thank You for filling the form
         </motion.p>
       </div>
 
       {/* Headline — staggered three-line stack */}
       <div className="space-y-0">
-        {["Discover If", "Rhinoplasty Is", "Right for You."].map((line, i) => (
+        {["You may be", "Eligible for", "Rhinoplasty"].map((line, i) => (
           <div key={i} className="overflow-hidden">
             <motion.span
               variants={unmask(0.8 + i * 0.15)}
@@ -345,9 +345,7 @@ function TextContent({ state }) {
             maxWidth: "400px",
           }}
         >
-          Complete our quick consultation form to receive a personalized
-          assessment from our rhinoplasty specialists. Learn about your
-          options, expected results, and recovery process.
+         Based on your answers, we believe you may be a suitable candidate for rhinoplasty. Our patient coordinators will contact you using the phone number you provided to discuss your case, answer your questions, and guide you through the next steps. Thank you for your interest—we look forward to speaking with you soon.
         </motion.p>
       </div>
 
@@ -359,7 +357,7 @@ function TextContent({ state }) {
         className="mt-12"
       >
         <a
-          href="https://tytzbjby.paperform.co"
+          href="https://wa.me/+905327457466"
           target="_blank"
           rel="noopener noreferrer"
           className="group inline-flex items-center gap-3 transition-all duration-500"
@@ -487,24 +485,6 @@ function HeroImage({ state, imgLoaded, setImgLoaded }) {
         }}
       />
 
-      {/* Caption */}
-      <motion.p
-        variants={fadeUp(2.2)}
-        initial="hidden"
-        animate={state}
-        className="mt-4"
-        style={{
-          fontFamily: "Inter, sans-serif",
-          fontSize: "9px",
-          fontWeight: 400,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#9D7E54",
-          textAlign: "right",
-        }}
-      >
-        The Precision of Form
-      </motion.p>
     </div>
   );
 }
