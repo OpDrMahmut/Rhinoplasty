@@ -83,7 +83,7 @@ export default function GallerySection() {
                 maxWidth: "620px",
               }}
             >
-              A Study in Aesthetic &amp; Natural Beauty
+             Patients Cases
             </motion.h2>
           </div>
           <motion.p
