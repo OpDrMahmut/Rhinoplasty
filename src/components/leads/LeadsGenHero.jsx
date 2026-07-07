@@ -317,7 +317,7 @@ function TextContent({ state }) {
               className="block"
               style={{
                 fontFamily: "Cormorant Garamond, serif",
-                fontSize: "clamp(48px, 7vw, 72px)",
+                fontSize: "clamp(44px, 7vw, 72px)",
                 fontWeight: 300,
                 lineHeight: 1,
                 letterSpacing: "-0.03em",

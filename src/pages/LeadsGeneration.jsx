@@ -1,7 +1,7 @@
 
 import LoadingOverlay from '@/components/luxury/LoadingOverlay';
 import React, { useCallback, useState , } from 'react'
-import HeroSection from '@/components/leads/LeagsGenHero';
+import HeroSection from '@/components/leads/LeadsGenHero';
 import Gallery from '@/components/leads/LeadsGallery';
 
 function RhinoplastyLeads() {

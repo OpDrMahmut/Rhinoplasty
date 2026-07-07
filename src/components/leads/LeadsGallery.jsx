@@ -65,7 +65,7 @@ export default function GallerySection() {
                 textTransform: "uppercase",
                 color: "#9D7E54",
               }}
-            >Natural Results, Expert Care
+            >Doğal Sonuçlar, Uzman Bakım
             </motion.p>
             <motion.h2
               initial="hidden"
@@ -83,7 +83,7 @@ export default function GallerySection() {
                 maxWidth: "620px",
               }}
             >
-             Patients Cases
+            Hasta Vakası
             </motion.h2>
           </div>
           <motion.p
@@ -100,7 +100,7 @@ export default function GallerySection() {
               color: "#666666",
             }}
           >
-          Every procedure is carefully planned to enhance your natural features while maintaining balance and harmony.
+         Her işlem, doğal yüz hatlarınızı denge ve uyumu koruyarak en iyi şekilde vurgulamak için özenle planlanır.
           </motion.p>
         </div>
 
