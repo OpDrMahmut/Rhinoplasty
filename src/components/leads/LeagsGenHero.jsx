@@ -302,13 +302,13 @@ function TextContent({ state }) {
             color: "#9D7E54",
           }}
         >
-         Thank You for filling the form
+        Teşekkür Ederiz!
         </motion.p>
       </div>
 
       {/* Headline — staggered three-line stack */}
       <div className="space-y-0">
-        {["You may be", "Eligible for", "Rhinoplasty"].map((line, i) => (
+        {["Rinoplasti İçin Uygun Bir Aday Olabilirsiniz"].map((line, i) => (
           <div key={i} className="overflow-hidden">
             <motion.span
               variants={unmask(0.8 + i * 0.15)}
@@ -317,7 +317,7 @@ function TextContent({ state }) {
               className="block"
               style={{
                 fontFamily: "Cormorant Garamond, serif",
-                fontSize: "clamp(48px, 7vw, 96px)",
+                fontSize: "clamp(48px, 7vw, 72px)",
                 fontWeight: 300,
                 lineHeight: 1,
                 letterSpacing: "-0.03em",
@@ -345,8 +345,27 @@ function TextContent({ state }) {
             maxWidth: "400px",
           }}
         >
-         Based on your answers, we believe you may be a suitable candidate for rhinoplasty. Our patient coordinators will contact you using the phone number you provided to discuss your case, answer your questions, and guide you through the next steps. Thank you for your interest—we look forward to speaking with you soon.
+        Verdiğiniz yanıtlara göre rinoplasti için uygun bir aday olabilirsiniz.
+
+Hasta koordinatörlerimizden biri, paylaştığınız bilgileri değerlendirdikten sonra verdiğiniz telefon numarası üzerinden sizinle en kısa sürede iletişime geçecektir. Tüm sorularınızı yanıtlayacak, tedavi süreci hakkında sizi bilgilendirecek ve bir sonraki adımlarda size rehberlik edecektir.
+
         </motion.p>
+         <motion.span
+              variants={fadeUp(0.5)}
+              initial="hidden"
+              animate={state}
+              className="block"
+              style={{
+                fontFamily: "Cormorant Garamond, serif",
+                fontSize: "20px",
+                fontWeight: 700,
+                lineHeight: 1.5,
+                letterSpacing: "-0.03em",
+                color: "#0F1412",
+              }}
+            >
+             Aşağıdaki WhatsApp butonunu kullanarak bizimle hemen iletişime geçebilir veya online danışmanlık talebinde bulunabilirsiniz.
+            </motion.span>
       </div>
 
       {/* CTA */}
