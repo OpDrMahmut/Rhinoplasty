@@ -3,7 +3,6 @@ import Navigation from "../components/luxury/Navigation";
 import Footer from "../components/luxury/Footer";
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-import { base44 } from "@/api/base44Client";
 import { useLang } from "@/lib/i18n/LanguageContext";
 
 const DOCTOR_IMAGE = "https://media.base44.com/images/public/6a271773d45d7fe415b4242b/8009d87c1_woman-receiving-facial-aesthetic-treatment-in-clin-2026-03-10-04-49-50-utc.jpg";
@@ -17,13 +16,60 @@ export default function Contact() {
   const [submitting, setSubmitting] = useState(false);
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
+  // const submit = async (e) => {
+  //   e.preventDefault();
+  //   setSubmitting(true);
+  //   await base44.functions.invoke('sendContactForm', { ...form });
+  //   setSubmitting(false);
+  //   setDone(true);
+  // };
+
   const submit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+
+  console.log("1. Submit clicked");
+
+  try {
     setSubmitting(true);
-    await base44.functions.invoke('sendContactForm', { ...form });
-    setSubmitting(false);
+
+    console.log("2. Calling function");
+
+    const response = await fetch("/api/contact", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(form),
+});
+
+const data = await response.json();
+
+if (!response.ok) {
+  throw new Error(data.message || "Failed to send email.");
+}
+
     setDone(true);
-  };
+    setForm({
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  subject: "",
+  message: "",
+});
+  } catch (err) {
+  console.error(err);
+
+  alert(
+    err instanceof Error
+      ? err.message
+      : "Something went wrong. Please try again."
+  );
+}finally {
+    console.log("5. Finally");
+    setSubmitting(false);
+  }
+};
 
   return (
     <>

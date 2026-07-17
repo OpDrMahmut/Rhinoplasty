@@ -32,15 +32,38 @@ export default function ConsultationForm() {
 
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
 
+  // const submit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   try {
+  //     await base44.functions.invoke('sendContactForm', form);
+  //   } catch (_) {}
+  //   setLoading(false);
+  //   setDone(true);
+  // };
+
   const submit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await base44.functions.invoke('sendContactForm', form);
-    } catch (_) {}
-    setLoading(false);
+  e.preventDefault();
+
+  console.log("1. Submit clicked");
+
+  try {
+    setSubmitting(true);
+
+    console.log("2. Calling function");
+
+    const result = await base44.functions.invoke("sendContactForm", form);
+
+    console.log("3. Function returned", result);
+
     setDone(true);
-  };
+  } catch (err) {
+    console.error("4. Error", err);
+  } finally {
+    console.log("5. Finally");
+    setSubmitting(false);
+  }
+};
 
   if (done) {
     return (
