@@ -18,6 +18,7 @@ import RhinoplastyLeads from "@/pages/LeadsGeneration";
 import PageTransition from "@/components/luxury/PageTransition";
 import { TransitionProvider, useTransition } from "@/lib/TransitionContext";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
+import WhatsAppButton from "./components/WhatsappButton";
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -65,6 +66,7 @@ export default function App() {
             </TransitionProvider>
           </LanguageProvider>
         </Router>
+        <WhatsAppButton />
         <Toaster />
       </QueryClientProvider>
     </AuthProvider>
