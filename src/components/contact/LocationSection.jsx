@@ -60,9 +60,9 @@ export default function LocationSection() {
                   <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '9px', fontWeight: 400, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#C9A36A', marginBottom: '10px' }}>
                     {t("location.address")}
                   </p>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 300, lineHeight: 1.65, color: '#555555' }}>Ataköy 7-8-9-10 Mh. No: 26, A Sk No:1</p>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 300, lineHeight: 1.65, color: '#555555' }}>A Blok 2. Kat Daire 33</p>
-                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 300, lineHeight: 1.65, color: '#555555' }}>34203 Bakırköy — Istanbul, Turkey</p>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 300, lineHeight: 1.65, color: '#555555' }}>Adres: Ataköy 7-8-9-10. mahallesi çobançeşme E-5 yan yol </p>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 300, lineHeight: 1.65, color: '#555555' }}>caddesi no:16/1 daire 121 </p>
+                  <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', fontWeight: 300, lineHeight: 1.65, color: '#555555' }}>Bakırköy/İSTANBUL</p>
                 </div>
 
                 {/* Phone */}

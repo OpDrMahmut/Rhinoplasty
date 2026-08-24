@@ -47,7 +47,7 @@ export default function Footer() {
           }}
             className="sm:text-left"
           >
-            Ataköy 7-8-9-10 Mh. No: 26, A Sk No:1
+            Ataköy 7-8-9-10. mahallesi çobançeşme E-5 
           </p>
           <p style={{
             fontFamily: 'Inter, sans-serif',
@@ -59,7 +59,7 @@ export default function Footer() {
             textAlign: 'center',
             margin: 0,
           }}>
-            A Blok 2. Kat Daire 33 — Bakırköy / Istanbul
+            yan yol caddesi no:16/1 daire 121 Bakırköy/İSTANBUL
           </p>
           <p style={{
             fontFamily: 'Inter, sans-serif',
