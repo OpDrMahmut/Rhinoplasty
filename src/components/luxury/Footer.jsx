@@ -116,7 +116,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div style={{ borderTop: '1px solid #E8E8E8' }}>
+      {/* <div style={{ borderTop: '1px solid #E8E8E8' }}>
         <div style={{ maxWidth: '960px', margin: '0 auto', padding: '18px 24px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '12px' }}>
           <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '10px', fontWeight: 300, letterSpacing: '0.08em', color: '#AAAAAA' }}>
             © {new Date().getFullYear()} Op. Dr. Mahmut Uzut
@@ -133,8 +133,100 @@ export default function Footer() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
+{/* Bottom bar */}
+<div style={{ borderTop: '1px solid #E8E8E8' }}>
+  <div
+    style={{
+      maxWidth: '960px',
+      margin: '0 auto',
+      padding: '18px 24px',
+      display: 'flex',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      gap: '16px',
+    }}
+  >
+    {/* Copyright */}
+    <p
+      style={{
+        fontFamily: 'Inter, sans-serif',
+        fontSize: '10px',
+        fontWeight: 300,
+        letterSpacing: '0.08em',
+        color: '#AAAAAA',
+        margin: 0,
+      }}
+    >
+      © {new Date().getFullYear()} Op. Dr. Mahmut Uzut
+    </p>
 
+    {/* Right side */}
+    <div className="flex items-center gap-6">
+      {/* Legal / Social Links */}
+      {/* {[t("footer.privacy"), t("footer.cookies"), t("footer.instagram")].map(item => (
+        <a
+          key={item}
+          href="#"
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '10px',
+            fontWeight: 300,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color: '#AAAAAA',
+            textDecoration: 'none',
+            transition: 'color 0.3s',
+          }}
+          onMouseEnter={e => e.currentTarget.style.color = '#111111'}
+          onMouseLeave={e => e.currentTarget.style.color = '#AAAAAA'}
+        >
+          {item}
+        </a>
+      ))} */}
+
+      {/* Designed by OrganicXMedia */}
+      <a
+        href="https://organicxmedia.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          textDecoration: 'none',
+          color: '#AAAAAA',
+          transition: 'opacity 0.3s',
+        }}
+        onMouseEnter={e => e.currentTarget.style.opacity = '0.65'}
+        onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+      >
+        <span
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '9px',
+            fontWeight: 300,
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+          }}
+        >
+          Designed by
+        </span>
+
+        <img
+          src="/ox.png"
+          alt="OrganicXMedia"
+          style={{
+            width: '90px',
+            height: 'auto',
+            display: 'block',
+          }}
+        />
+      </a>
+    </div>
+  </div>
+</div>
     </footer>
   );
 }
