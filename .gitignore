@@ -31,3 +31,6 @@ dist-ssr
 .vite
 .vercel
 .env*
+
+.wrangler
+.dev.vars*
