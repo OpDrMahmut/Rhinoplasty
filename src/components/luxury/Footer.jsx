@@ -27,7 +27,7 @@ export default function Footer() {
           flexWrap: 'wrap',
           justifyContent: 'center',
           alignItems: 'center',
-          gap: 'clamp(24px, 5vw, 64px)',
+          rowGap: '24px',
           padding: 'clamp(48px, 8vw, 96px) 24px 0',
         }}
       >
@@ -42,13 +42,24 @@ export default function Footer() {
             height: 'auto',
           }}
         />
+        <div
+          aria-hidden="true"
+          style={{
+            flex: '0 0 auto',
+            width: '1px',
+            height: 'clamp(40px, 5vw, 56px)',
+            margin: '0 clamp(12px, 3vw, 24px)',
+            backgroundColor: '#E8E8E8',
+            alignSelf: 'center',
+          }}
+        />
         <img
           src="/images/health-turkiye.webp"
           alt="Health Türkiye"
           style={{
-            flex: '1 1 300px',
+            flex: '0 1 260px',
             minWidth: 0,
-            maxWidth: 'min(300px, 42vw)',
+            maxWidth: 'min(260px, 34vw)',
             width: '100%',
             height: 'auto',
           }}
