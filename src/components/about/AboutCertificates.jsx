@@ -13,6 +13,8 @@ const CERTIFICATES = [
   { src: "https://media.base44.com/images/public/6a271773d45d7fe415b4242b/e300f72e3_image.png", alt: "Certificate in Medical Aesthetics Training — Botulinum Toxin A Level 1", title: "Certificate in Medical Aesthetics Training Botulinum Toxin A Level 1", date: "30 Eylül 2018" },
   { src: "https://media.base44.com/images/public/6a271773d45d7fe415b4242b/1d7a96169_image.png", alt: "Certificate in Medical Aesthetics Training — Dermal Fillers Level 1", title: "Certificate in Medical Aesthetics Training Dermal Fillers A Level 1", date: "30 Eylül 2018" },
   { src: "https://media.base44.com/images/public/6a271773d45d7fe415b4242b/1514705e1_image.png", alt: "Certificate in Medical Aesthetics Training — Botulinum Toxin A Level 2", title: "Certificate in Medical Aesthetics Training Botulinum Toxin A Level 2", date: "30 Eylül 2018" },
+  { src: "/images/certificates/Op Dr.png", alt: "International Health Tourism Authorization Certificate — 26.03.2025", title: "International Health Tourism Authorization Certificate", date: "26.03.2025" },
+  { src: "/images/certificates/Saglik.png", alt: "International Health Tourism Authorization – Ministry of Health Document — 26.03.2025", title: "International Health Tourism Authorization – Ministry of Health Document", date: "26.03.2025" },
 ];
 
 export default function AboutCertificates() {
