@@ -20,12 +20,38 @@ export default function Footer() {
   return (
     <footer style={{ backgroundColor: '#FFFFFF', color: '#111111', borderTop: '1px solid #E8E8E8' }}>
 
-      {/* Doctor logo — huge */}
-      <div style={{ textAlign: 'center', padding: 'clamp(48px, 8vw, 96px) 24px 0' }}>
+      {/* Logos */}
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: 'clamp(24px, 5vw, 64px)',
+          padding: 'clamp(48px, 8vw, 96px) 24px 0',
+        }}
+      >
         <img
           src="https://media.base44.com/images/public/6a271773d45d7fe415b4242b/6e75ccb34_1.png"
           alt="Dr. Mahmut Uzut"
-          style={{ maxWidth: '300px', width: '100%', height: 'auto', margin: '0 auto' }}
+          style={{
+            flex: '1 1 300px',
+            minWidth: 0,
+            maxWidth: 'min(300px, 42vw)',
+            width: '100%',
+            height: 'auto',
+          }}
+        />
+        <img
+          src="/images/health-turkiye.webp"
+          alt="Health Türkiye"
+          style={{
+            flex: '1 1 300px',
+            minWidth: 0,
+            maxWidth: 'min(300px, 42vw)',
+            width: '100%',
+            height: 'auto',
+          }}
         />
       </div>
 
