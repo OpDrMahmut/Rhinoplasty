@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/i18n/LanguageContext";
-import { useMemo } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 const COL_IDS = [
   ["rhinoplasty", "septoplasty", "tip-rhinoplasty", "barbie-nose", "piezo-rhinoplasty"],
@@ -8,8 +8,53 @@ const COL_IDS = [
   ["lip-fillers", "jawline-filler", "cheek-filler", "botox", "mesotherapy"],
 ];
 
+const CERTIFICATE_IMAGE = "/images/certificates/Op Dr.png";
+const CERTIFICATE_ALT = "International Health Tourism Authorization Certificate";
+
 export default function Footer() {
   const { t } = useLang();
+  const [isCertificateOpen, setIsCertificateOpen] = useState(false);
+  const closeButtonRef = useRef(null);
+  const closeCertificate = useCallback(() => setIsCertificateOpen(false), []);
+
+  useEffect(() => {
+    if (!isCertificateOpen) return undefined;
+
+    const previousBodyOverflow = document.body.style.overflow;
+    const previousDocumentOverflow = document.documentElement.style.overflow;
+    const previousBodyPaddingRight = document.body.style.paddingRight;
+    const previousFocusedElement = document.activeElement;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeCertificate();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    closeButtonRef.current?.focus();
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow;
+      document.documentElement.style.overflow = previousDocumentOverflow;
+      document.body.style.paddingRight = previousBodyPaddingRight;
+      document.removeEventListener("keydown", handleKeyDown);
+
+      if (previousFocusedElement instanceof HTMLElement) {
+        previousFocusedElement.focus();
+      }
+    };
+  }, [isCertificateOpen, closeCertificate]);
+
   const colLinks = useMemo(() => COL_IDS.map(col =>
     col.map(id => {
       const label = t(`treatmentContent.${id}.label`);
@@ -17,10 +62,11 @@ export default function Footer() {
       return { label: display, path: `/treatments/${id}` };
     })
   ), [t]);
+
   return (
     <footer style={{ backgroundColor: '#FFFFFF', color: '#111111', borderTop: '1px solid #E8E8E8' }}>
 
-      {/* Logos */}
+      {/* Certificate */}
       <div
         style={{
           display: 'flex',
@@ -28,18 +74,40 @@ export default function Footer() {
           padding: 'clamp(48px, 8vw, 96px) 24px 0',
         }}
       >
-        <img
-          src="/images/certificates/Op Dr.png"
-          alt="International Health Tourism Authorization Certificate"
+        <button
+          type="button"
+          onClick={() => setIsCertificateOpen(true)}
+          aria-haspopup="dialog"
+          aria-label={`View ${CERTIFICATE_ALT} larger`}
           style={{
+            display: 'block',
             width: '100%',
             maxWidth: '420px',
-            height: 'auto',
-            display: 'block',
-            marginBottom: 'clamp(28px, 4vw, 44px)',
+            padding: 0,
+            border: '0',
+            outline: 'none',
+            background: 'transparent',
+            cursor: 'zoom-in',
           }}
-        />
+        >
+          <img
+            src={CERTIFICATE_IMAGE}
+            alt={CERTIFICATE_ALT}
+            style={{
+              width: '100%',
+              maxWidth: '420px',
+              height: 'auto',
+              display: 'block',
+              marginBottom: 'clamp(28px, 4vw, 44px)',
+              border: '0',
+              outline: 'none',
+              boxShadow: 'none',
+            }}
+          />
+        </button>
       </div>
+
+      {/* Logos */}
       <div
         style={{
           display: 'flex',
@@ -190,99 +258,174 @@ export default function Footer() {
           </div>
         </div>
       </div> */}
-{/* Bottom bar */}
-<div style={{ borderTop: '1px solid #E8E8E8' }}>
-  <div
-    style={{
-      maxWidth: '960px',
-      margin: '0 auto',
-      padding: '18px 24px',
-      display: 'flex',
-      flexWrap: 'wrap',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      gap: '16px',
-    }}
-  >
-    {/* Copyright */}
-    <p
-      style={{
-        fontFamily: 'Inter, sans-serif',
-        fontSize: '10px',
-        fontWeight: 300,
-        letterSpacing: '0.08em',
-        color: '#AAAAAA',
-        margin: 0,
-      }}
-    >
-      © {new Date().getFullYear()} Op. Dr. Mahmut Uzut
-    </p>
-
-    {/* Right side */}
-    <div className="flex items-center gap-6">
-      {/* Legal / Social Links */}
-      {/* {[t("footer.privacy"), t("footer.cookies"), t("footer.instagram")].map(item => (
-        <a
-          key={item}
-          href="#"
+      {/* Bottom bar */}
+      <div style={{ borderTop: '1px solid #E8E8E8' }}>
+        <div
           style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '10px',
-            fontWeight: 300,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            color: '#AAAAAA',
-            textDecoration: 'none',
-            transition: 'color 0.3s',
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = '#111111'}
-          onMouseLeave={e => e.currentTarget.style.color = '#AAAAAA'}
-        >
-          {item}
-        </a>
-      ))} */}
-
-      {/* Designed by OrganicXMedia */}
-      <a
-        href="https://organicxmedia.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: '8px',
-          textDecoration: 'none',
-          color: '#AAAAAA',
-          transition: 'opacity 0.3s',
-        }}
-        onMouseEnter={e => e.currentTarget.style.opacity = '0.65'}
-        onMouseLeave={e => e.currentTarget.style.opacity = '1'}
-      >
-        <span
-          style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '9px',
-            fontWeight: 300,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
+            maxWidth: '960px',
+            margin: '0 auto',
+            padding: '18px 24px',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '16px',
           }}
         >
-          Designed by
-        </span>
+          {/* Copyright */}
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: '10px',
+              fontWeight: 300,
+              letterSpacing: '0.08em',
+              color: '#AAAAAA',
+              margin: 0,
+            }}
+          >
+            © {new Date().getFullYear()} Op. Dr. Mahmut Uzut
+          </p>
 
-        <img
-          src="/ox.png"
-          alt="OrganicXMedia"
-          style={{
-            width: '90px',
-            height: 'auto',
-            display: 'block',
+          {/* Right side */}
+          <div className="flex items-center gap-6">
+            {/* Legal / Social Links */}
+            {/* {[t("footer.privacy"), t("footer.cookies"), t("footer.instagram")].map(item => (
+              <a
+                key={item}
+                href="#"
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '10px',
+                  fontWeight: 300,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  color: '#AAAAAA',
+                  textDecoration: 'none',
+                  transition: 'color 0.3s',
+                }}
+                onMouseEnter={e => e.currentTarget.style.color = '#111111'}
+                onMouseLeave={e => e.currentTarget.style.color = '#AAAAAA'}
+              >
+                {item}
+              </a>
+            ))} */}
+
+            {/* Designed by OrganicXMedia */}
+            <a
+              href="https://organicxmedia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '8px',
+                textDecoration: 'none',
+                color: '#AAAAAA',
+                transition: 'opacity 0.3s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.opacity = '0.65'}
+              onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+            >
+              <span
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '9px',
+                  fontWeight: 300,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Designed by
+              </span>
+
+              <img
+                src="/ox.png"
+                alt="OrganicXMedia"
+                style={{
+                  width: '90px',
+                  height: 'auto',
+                  display: 'block',
+                }}
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {isCertificateOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={CERTIFICATE_ALT}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) {
+              closeCertificate();
+            }
           }}
-        />
-      </a>
-    </div>
-  </div>
-</div>
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 1000,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'clamp(16px, 4vw, 48px)',
+            backgroundColor: 'rgba(0, 0, 0, 0.82)',
+          }}
+        >
+          <button
+            ref={closeButtonRef}
+            type="button"
+            onClick={closeCertificate}
+            aria-label="Close certificate"
+            style={{
+              position: 'absolute',
+              top: 'clamp(12px, 3vw, 24px)',
+              right: 'clamp(12px, 3vw, 24px)',
+              width: '44px',
+              height: '44px',
+              border: '0',
+              borderRadius: '999px',
+              backgroundColor: 'rgba(255, 255, 255, 0.12)',
+              color: '#FFFFFF',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: 'pointer',
+              zIndex: 1,
+            }}
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M6 6L14 14M14 6L6 14"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <img
+            src={CERTIFICATE_IMAGE}
+            alt={CERTIFICATE_ALT}
+            style={{
+              display: 'block',
+              width: 'auto',
+              maxWidth: 'min(1100px, 92vw)',
+              maxHeight: 'min(84vh, 900px)',
+              height: 'auto',
+              objectFit: 'contain',
+            }}
+          />
+        </div>
+      )}
     </footer>
   );
 }
