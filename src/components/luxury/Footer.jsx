@@ -24,11 +24,30 @@ export default function Footer() {
       <div
         style={{
           display: 'flex',
+          justifyContent: 'center',
+          padding: 'clamp(48px, 8vw, 96px) 24px 0',
+        }}
+      >
+        <img
+          src="/images/certificates/Op Dr.png"
+          alt="International Health Tourism Authorization Certificate"
+          style={{
+            width: '100%',
+            maxWidth: '420px',
+            height: 'auto',
+            display: 'block',
+            marginBottom: 'clamp(28px, 4vw, 44px)',
+          }}
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
           alignItems: 'center',
           rowGap: '24px',
-          padding: 'clamp(48px, 8vw, 96px) 24px 0',
+          padding: '0 24px',
         }}
       >
         <img
