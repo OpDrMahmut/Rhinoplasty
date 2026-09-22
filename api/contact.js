@@ -168,7 +168,7 @@ export default async function handler(req, res) {
     // Send email to clinic
 const clinicEmail = await resend.emails.send({
   from: "Dr. Mahmut Uzut Clinic <noreply@drmahmutuzut.com>",
-  to: ["organicxmedia@gmail.com"],
+  to: ["info@drmahmutuzut.com"],
   reply_to: email, // <-- changed from replyTo
   subject: `New Enquiry — ${name}${subject ? ` · ${subject}` : ""}`,
   html: htmlBody,
